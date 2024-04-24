@@ -31,7 +31,9 @@ class SetupController extends Controller
             'sb6' => 'required|min:3',
             'sb7' => 'required|min:3',
             'chairman' => 'required|min:3',
-            'logo' => 'mimes:png,jpeg,jpg,bmp,svg'
+            'logo' => 'mimes:png,jpeg,jpg,bmp,svg',
+            'username' => 'required|min:5',
+            'password' => 'required|unique|min:8'
         ],
         [
             'municipality.required' => 'Please select a municipality',
@@ -63,7 +65,12 @@ class SetupController extends Controller
             'sb7.min' => 'Sanggunian Member 7 name shoud contain 3 or more character',
             'chairman.required' => 'SK Chairman is required',
             'chairman.min' => 'SK Chairman name shoud contain 3 or more character',
-            'logo.mimes' => 'File should be image file'
+            'logo.mimes' => 'File should be image file',
+            'username.required' => 'Username is required',
+            'username.min' => 'Username should contain 5 or more character',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password should contain 8 or more character'
+            
         ]);
         if($validator->fails()){
             foreach($validator->messages()->all() as $message){

@@ -78,7 +78,7 @@ class RedirectController extends Controller
     public function redirectToSetupPage(){
         $config = Config::first();
         if(!$config->first_time){
-            flash()->addError('First time set-up completed');
+            flash()->addError("You're successfully registered");
             return redirect('/');
         }
         return view('setup');

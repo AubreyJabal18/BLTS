@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignId('current_term')->nullable();
             $table->boolean('first_time');
             $table->timestamps();
+            $table->string('username')->unique();
+            $table->string('password')->unique();
         });
     }
 
